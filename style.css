@@ -1,0 +1,345 @@
+/* ---------------------------------------------------------------
+   Saira Rizvi — academic single-page site
+   Palette: deep rose primary, warm gold and violet as category
+   accents, blush surfaces, warm near-black text.
+   Soft in colour, still sober in structure.
+   --------------------------------------------------------------- */
+
+:root {
+  --ink:          #221A20;
+  --muted:        #726069;
+  --paper:        #FFFCFD;
+  --rule:         #EFE4E9;
+
+  --rose:         #8E3560;
+  --rose-deep:    #6F2749;
+  --rose-soft:    #F9E9EF;
+  --rose-line:    rgba(142, 53, 96, 0.28);
+
+  --gold:         #9A6B1F;
+  --gold-soft:    #F7EEDF;
+
+  --violet:       #6A4A8F;
+  --violet-soft:  #EFE9F6;
+
+  --sage:         #4F6B62;
+  --sage-soft:    #E7EFEB;
+
+  --blush:        #FCF4F7;
+
+  --measure: 46rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-weight: 350;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--rose-soft); color: var(--rose-deep); }
+
+.wrap {
+  width: min(var(--measure), 100% - 2.5rem);
+  margin-inline: auto;
+}
+
+a {
+  color: var(--rose);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rose-line);
+  transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
+}
+a:hover { border-bottom-color: var(--rose); background: var(--rose-soft); }
+a:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; border-radius: 3px; }
+
+/* --- anchor nav --------------------------------------------------- */
+
+.topnav {
+  border-bottom: 1px solid var(--rule);
+  background: rgba(255, 252, 253, 0.88);
+  backdrop-filter: saturate(180%) blur(10px);
+  position: sticky; top: 0; z-index: 10;
+}
+.topnav ul {
+  display: flex; flex-wrap: wrap; gap: 0.35rem 1.35rem;
+  margin: 0; padding: 0.85rem 0; list-style: none;
+  font-size: 0.8125rem; letter-spacing: 0.03em;
+}
+.topnav a {
+  color: var(--muted);
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  background: none;
+}
+.topnav a:hover { color: var(--rose); background: none; border-bottom-color: var(--rose-line); }
+.topnav a.active { color: var(--rose); border-bottom-color: var(--rose); font-weight: 500; }
+
+/* --- header ------------------------------------------------------- */
+
+.band {
+  background:
+    radial-gradient(58rem 20rem at 50% -4rem, var(--rose-soft) 0%, rgba(249, 233, 239, 0) 72%),
+    linear-gradient(180deg, var(--blush) 0%, rgba(252, 244, 247, 0) 100%);
+  border-bottom: 1px solid var(--rule);
+}
+
+.header { text-align: center; padding-block: 3.25rem 2.5rem; }
+
+/* gradient ring around the portrait */
+.avatar {
+  width: 158px; height: 158px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  padding: 4px;
+  background: linear-gradient(140deg, var(--rose) 0%, #C4728F 45%, var(--gold) 100%);
+  box-shadow: 0 10px 30px rgba(142, 53, 96, 0.18);
+}
+.avatar img {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 3px solid var(--paper);
+  background: var(--blush);
+}
+
+.header h1 {
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: clamp(2.4rem, 1.9rem + 2vw, 3.1rem);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.1;
+  margin: 0 0 0.5rem;
+}
+
+.header .title {
+  color: var(--muted);
+  margin: 0;
+  font-size: 1.0625rem;
+}
+.header .title strong { color: var(--rose); font-weight: 550; }
+
+/* --- bio ---------------------------------------------------------- */
+
+.bio { padding-block: 2.5rem 1.5rem; }
+.bio p { margin: 0 0 1.1rem; }
+.bio p:last-child { margin-bottom: 0; }
+
+.bio .seeking {
+  background: linear-gradient(120deg, var(--rose-soft) 0%, var(--blush) 100%);
+  border-left: 3px solid var(--rose);
+  border-radius: 0 10px 10px 0;
+  padding: 0.9rem 1.15rem;
+  color: var(--rose-deep);
+  font-weight: 450;
+}
+
+/* --- link row ----------------------------------------------------- */
+
+.linkrow {
+  display: flex; flex-wrap: wrap; gap: 0.55rem;
+  margin: 1.75rem 0 0.75rem; padding: 0; list-style: none;
+}
+.linkrow a {
+  display: inline-block;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.32rem 0.95rem;
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: #fff;
+}
+.linkrow a:hover { border-color: var(--rose); color: var(--rose); background: var(--rose-soft); }
+.linkrow a.primary {
+  background: var(--rose);
+  border-color: var(--rose);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(142, 53, 96, 0.22);
+}
+.linkrow a.primary:hover { background: var(--rose-deep); border-color: var(--rose-deep); color: #fff; }
+
+.email { color: var(--muted); font-size: 0.95rem; margin: 0.9rem 0 0; }
+
+/* --- sections ----------------------------------------------------- */
+
+section { padding-block: 2.5rem; }
+section + section { border-top: 1px solid var(--rule); }
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin: 0 0 1.35rem;
+}
+/* small rose diamond before each heading */
+h2::before {
+  content: "";
+  width: 8px; height: 8px;
+  background: var(--rose);
+  transform: rotate(45deg);
+  border-radius: 1px;
+  flex: none;
+}
+
+/* --- highlight / plain lists -------------------------------------- */
+
+ul.plainlist { margin: 0; padding: 0; list-style: none; }
+ul.plainlist li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+ul.plainlist li:last-child { margin-bottom: 0; }
+ul.plainlist li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.68em;
+  width: 6px; height: 6px;
+  background: var(--rose);
+  opacity: 0.6;
+  transform: rotate(45deg);
+  border-radius: 1px;
+}
+
+/* --- news --------------------------------------------------------- */
+
+.news { list-style: none; margin: 0; padding: 0; }
+.news li {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: baseline;
+}
+.news .when {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--rose);
+  padding-top: 0.55rem;
+}
+.news .what {
+  border-left: 2px solid var(--rule);
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  position: relative;
+  transition: border-color 140ms ease;
+}
+.news .what::before {
+  content: "";
+  position: absolute;
+  left: -5px; top: 1.05rem;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--rose-line);
+  transition: border-color 140ms ease, background-color 140ms ease;
+}
+.news li:hover .what { border-left-color: var(--rose-line); }
+.news li:hover .what::before { background: var(--rose); border-color: var(--rose); }
+
+/* --- entries (research, patents, publications) -------------------- */
+
+.item { padding-block: 1.4rem; border-top: 1px solid var(--rule); }
+.item:first-of-type { border-top: 0; padding-top: 0; }
+
+.item h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin: 0 0 0.45rem;
+  line-height: 1.4;
+}
+
+/* tinted cards for the research section */
+.item.card {
+  background: linear-gradient(135deg, var(--blush) 0%, rgba(255, 252, 253, 0.6) 100%);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--rose);
+  border-radius: 0 12px 12px 0;
+  padding: 1.15rem 1.3rem;
+  margin-bottom: 0.85rem;
+  box-shadow: 0 2px 10px rgba(142, 53, 96, 0.05);
+}
+.item.card:last-child { margin-bottom: 0; }
+.item.card h3 { color: var(--rose-deep); }
+.item.card .note { color: #4A3B43; }
+
+.badge {
+  display: inline-block;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  background: var(--rose-soft);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  padding: 0.16rem 0.6rem;
+  color: var(--rose);
+  vertical-align: 0.14em;
+  margin-right: 0.45rem;
+  white-space: nowrap;
+}
+.badge--gold   { background: var(--gold-soft);   color: var(--gold); }
+.badge--violet { background: var(--violet-soft); color: var(--violet); }
+.badge--sage   { background: var(--sage-soft);   color: var(--sage); }
+
+.item .cite { margin: 0 0 0.3rem; color: var(--muted); font-size: 0.95rem; }
+.item .authors { margin: 0 0 0.3rem; font-size: 0.95rem; }
+.item .authors strong { font-weight: 600; color: var(--rose-deep); }
+.item .note { margin: 0.45rem 0 0; font-size: 0.95rem; color: var(--muted); }
+
+.item .refs {
+  margin: 0.7rem 0 0; padding: 0; list-style: none;
+  display: flex; flex-wrap: wrap; gap: 0.5rem 0.85rem; font-size: 0.9rem;
+}
+
+/* --- footer ------------------------------------------------------- */
+
+.footerband {
+  background: linear-gradient(180deg, rgba(252, 244, 247, 0) 0%, var(--blush) 100%);
+  border-top: 1px solid var(--rule);
+  margin-top: 1rem;
+}
+.footer {
+  padding-block: 1.75rem 2.5rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.5rem;
+  justify-content: space-between;
+}
+.footer p { margin: 0; }
+
+/* --- responsive --------------------------------------------------- */
+
+@media (max-width: 40rem) {
+  .header { padding-block: 2.25rem 1.75rem; }
+  .avatar { width: 128px; height: 128px; }
+  .news li { grid-template-columns: 1fr; gap: 0; }
+  .news .when { padding-top: 0.75rem; }
+  .news .what { border-left: 0; padding-left: 0; padding-top: 0.1rem; }
+  .news .what::before { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition-duration: 0.001ms !important; }
+}
+
+@media print {
+  .topnav, .footerband { display: none; }
+  body { font-size: 10.5pt; background: #fff; }
+  .band, .item.card, .bio .seeking { background: none; box-shadow: none; }
+  a { color: var(--ink); border-bottom: 0; background: none; }
+  .item.card { border-left-color: #999; }
+  .avatar { background: none; box-shadow: none; padding: 0; }
+}
